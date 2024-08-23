@@ -139,18 +139,4 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
-    $('#mypage_header').css('height', '10px').css('overflow', 'hidden'); // Initial size
 
-    $('#mypage_header').hover(
-        function() {
-            // Mouse enters
-            $(this).stop().animate({ height: '100px' }, 300);
-        },
-        function() {
-            // Mouse leaves
-            $(this).stop().animate({ height: '10px' }, 300); 
-        }
-    );
-   
-});
