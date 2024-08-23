@@ -124,14 +124,16 @@ $(document).ready(function() {
     $('#mypage_footer').hide()
     $('<div>', {
         id: 'references',
-        html: '<h2> Footer</h2>'
+        html: '<h2> Reference 1</h2> <h2> Reference 2</h2> <h2> Reference 3</h2>'
+        
     }).insertBefore('#mypage_footer');
 
     $('#references').css({
         'width': '100%',            
         'margin': '0 auto',          
         'text-align': 'center',      
-        'padding': '10px',           
+        'padding': '10px',     
+        'color': '#CC0000',      
         'border': '1px solid #ccc',  
         'background-color': '#f9f9f9' 
     });
@@ -142,7 +144,6 @@ $(document).ready(function() {
 
     $('#mypage_header').hover(
         function() {
-            console.log("hovered")
             // Mouse enters
             $(this).stop().animate({ height: '100px' }, 300);
         },
@@ -151,16 +152,5 @@ $(document).ready(function() {
             $(this).stop().animate({ height: '10px' }, 300); 
         }
     );
-    let animationComplete = false; 
-
-    $('#references').hover(
-        function() {
-            if (!animationComplete) { 
-                $('#mypage_footer').stop().slideDown(10000, function() {
-                    alert('Footer has fully slid down.');
-                    animationComplete = true; 
-                });
-            }
-        }
-    );   
+   
 });
