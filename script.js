@@ -1,142 +1,59 @@
-function max(num1, num2) {
-    if (num1 > num2) {
-        return num1
-    } else {
-        return num2
-    }
-}
-function findmax() {
-
-    let number1 = parseFloat(document.getElementById('num1').value);
-    const number2 = parseFloat(document.getElementById('num2').value);
-
-    if (isNaN(number1) || isNaN(number2)) {
-        document.getElementById('result').innerText = "";
-        document.getElementById('error').innerText = "Please enter valid numbers!";
-        return;
-    }
-    const maxValue = max(number1, number2);
-    document.getElementById('error').innerText = "";
-    document.getElementById('result').innerText = `Max: ${maxValue}`;
-}
-
-function reverseString() {
-    const inputString = document.getElementById('stringInput').value;
-    const errorElement = document.getElementById('reverseString_error');
-
-    errorElement.innerText = "";
-    document.getElementById('reverseString_result').innerText = ""
-
-    if (inputString.trim() === '') {
-        document.getElementById('reverseString_error').innerText = "Please Enter a Valid String";
-    }
-    const reversedString = inputString.split('').reverse().join('');
-    document.getElementById('reverseString_result').innerText = reversedString;
-}
-
-function FindLongestWord() {
-    const inputString = document.getElementById('wordInput').value;
-    const errorElement = document.getElementById('longestString_error');
-    errorElement.innerText = ""
-    document.getElementById('longestString_result').innerText = "";
-
-    if (inputString.trim() === "") {
-        document.getElementById('longestString_error').innerText = "Field cannot be Empty";
-    }
-    const wordsArray = inputString.split(',').map(word => word.trim());
-    const longestWord = wordsArray.reduce((a, b) => a.length > b.length ? a : b, '');
-    document.getElementById('longestString_result').innerText = longestWord;
-}
-
-// Function to load details from cookies
-function loadDetails() {
-    const cookies = document.cookie.split(';');
-    if (cookies.length > 1) {
-        cookies.forEach(cookie => {
-            const [name, value] = cookie.trim().split('=');
-            if (name === 'name') {
-                document.querySelector('.header-name').innerText = decodeURIComponent(value);
-            } else if (name === 'phone') {
-                document.querySelector('.phone').innerHTML = `<span>Phone:</span> ${decodeURIComponent(value)}`;
-            }
-        });
-    } else {
-        document.querySelector('.header-name').innerText = "Manoj Kumar";
-        document.querySelector('.phone').innerHTML = `<span>Phone:</span>9908993803`;
-    }
-}
-
-// Function to save details in cookies
-function saveDetails() {
-    const name = document.getElementById('nameInput').value;
-    const phone = document.getElementById('phoneInput').value;
-    const errorElement = document.getElementById('form_error');
-
-    const validName = /^[a-zA-Z\s]*$/;
-    const validPhone = /^[0-9\s]*$/;
-
-    errorElement.innerText = "";
-
-    if (name.trim() === "") {
-        errorElement.innerText = "Please Enter Your Name!";
-    } else if (!validName.test(name)) {
-        errorElement.innerText = "Name contains invalid characters!";
-    } else if (phone.trim() === "") {
-        errorElement.innerText = "Please Enter Your Phone Number!";
-    } else if (!validPhone.test(phone)) {
-        errorElement.innerText = "Phone Number contains invalid characters!";
-    } else {
-        // Cookies with an expiry date of 7 days
-        document.cookie = `name=${encodeURIComponent(name)}; max-age=${7 * 24 * 60 * 60}`;
-        document.cookie = `phone=${encodeURIComponent(phone)}; max-age=${7 * 24 * 60 * 60}`;
-
-        errorElement.innerText = "";
-        document.getElementById('form_result').innerText = "Data Saved Successfully!";
-    }
-
-}
-loadDetails();
-
-document.getElementById('saveBtn').addEventListener('click', saveDetails);
-
-
-
-$(document).ready(function() {
-   $('#center_section').css({
-        'background-color': '#FFFF88',
-        'color': '#CC0000'
-    })
-
-    $('input').css({
-        'border':'none'
-    })
-
-    $('#mypage_centerContent main').css({
-        'border' : '2px solid #FF1A00',
-    })
-
-    $('#mypage_leftnav aside').css({
-        'border-right' : '2px solid #FF1A00',
-        'border-top' : '2px solid #FF1A00',
-        'border-bottom' : '2px solid #FF1A00',
-        
-    })
-    $('#mypage_footer').hide()
-    $('<div>', {
-        id: 'references',
-        html: '<h2> Reference 1</h2> <h2> Reference 2</h2> <h2> Reference 3</h2>'
-        
-    }).insertBefore('#mypage_footer');
-
-    $('#references').css({
-        'width': '100%',            
-        'margin': '0 auto',          
-        'text-align': 'center',      
-        'padding': '10px',     
-        'color': '#CC0000',      
-        'border': '1px solid #ccc',  
-        'background-color': '#f9f9f9' 
+$(document).ready(function () {
+  function applyStyles() {
+    $("#mypage_header").css({
+      "background-color": "#FFFF88",
+      color: "#CC0000",
+      "border-bottom": "2px solid #FF1A00",
     });
+    $("#center_section").css({
+      "background-color": "#FFFF88",
+      color: "#CC0000",
+      "padding-bottom": "30px",
+    });
+    $("input").css({
+      border: "none",
+    });
+    $("#mypage_centerContent main").css({
+      "border-bottom": "2px solid #FF1A00",
+    });
+    $("#mypage_leftnav aside").css({
+      color: "#CC0000",
+      "border-right": "2px solid #FF1A00",
+    });
+    $("#mypage_footer").hide();
+    $("#references").remove();
+    $("<div>", {
+      id: "references",
+      html: '<p>Taken inspiration from</p><a href="https://www.google.com/search?sca_esv=3aefff09a9d5a078&q=resume+format&udm=2&fbs=AEQNm0DYVld7NGDZ8Pi819Yg8r6em07j6rW9d2jUMtr8MB7hthlxj_a5JB7GtKl9Rvi8UOrX6vOKeE8ctU8C4v5SDrHEsrgUOOFp5HvlkBZf4yVP83YajKnrlhAJvHG8uQnJWlvuYz8LvE_lwESvEPu-1v94fKd9xhS49UTuNSe7CMY7I5AuGmdDN0lv5iId0gIyD9wyA5aKEve0q31Gi2kwmyWtccpVrQ&sa=X&ved=2ahUKEwjGtY-EiJKIAxUJk68BHbdOI5wQtKgLegQIGRAB&biw=1478&bih=746&dpr=1.25">Resume Templates</a>',
+    }).insertBefore("#button_container");
+    $("#references").css({
+      width: "100%",
+      margin: "0 auto",
+      "text-align": "center",
+      padding: "10px",
+      color: "#CC0000",
+      "font-size": "18px",
+    });
+  }
+
+  $("<button>", {
+    id: "loadButton",
+    text: "Load",
+    click: function () {
+      applyStyles();
+    },
+  }).appendTo("#button_container");
+
+  $("#button_container").css({
+    width: "100%",
+    "text-align": "center",
+  });
+  $("#loadButton").css({
+    padding: "10px",
+    margin: "6px",
+    "font-weight": "bold",
+    "background-color": "#180161",
+    color: "white",
+    "border-radius": "5px",
+  });
 });
-
-

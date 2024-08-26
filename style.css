@@ -17,8 +17,8 @@
 #wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
   position: relative;
+  border:2px solid #333;
 }
 
 /* Header section */
@@ -26,7 +26,7 @@
   position: sticky; 
   top: 0; 
   z-index: 1000; 
-  margin-top:8px;
+  margin-top:1px;
   background-color: var(--bg);
   width: 100%; 
   height: 100px;
@@ -47,7 +47,7 @@
 #center_section {
   display: flex;
   font-size: 1.1rem;
-  flex-direction: row-reverse;
+  flex-direction: row;
   padding-top:1px;
 background-color: var(--primary-dark);
 }
@@ -66,8 +66,6 @@ background-color: var(--primary-dark);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     border-right: 2px solid black;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
     margin-left: 0;
     padding-left: 0;
     
@@ -105,7 +103,7 @@ background-color: var(--primary-dark);
     margin-left: 12px;
     padding: 8px;
     margin-right: 0;
-    border: 2px solid black ;
+    border-bottom: 2px solid black ;
 }
 
 .center-content {
@@ -206,7 +204,6 @@ background-color: var(--primary-dark);
     margin: 0px;
     margin-top: 8px;
     padding: 2px;
-    border:1px solid #FF1A00 ;
   }
 
   .list li {
@@ -274,7 +271,6 @@ background-color: var(--primary-dark);
     margin: 0px;
     margin-top: 10px;
     padding: 0;
-    border: 1px solid #FF1A00 
   }
 
   /* footer section */
@@ -327,7 +323,6 @@ background-color: var(--primary-dark);
     margin: 0px;
     margin-top: 15px;
     padding: 6px;
-    border: 1px solid #FF1A00;
   }
 
   /* footer section */
@@ -377,114 +372,4 @@ background-color: var(--primary-dark);
     font-size: 0.9rem;
   }
   
-}
-
-#js_wrapper {
-  text-align: center;
-  margin-top:100px;
-  font-family: 'Poppins', sans-serif; 
-}
-#js_wrapper p {
-  color:#4C3BCF;
-  font-size:28px;
-  font-weight:bold;
-}
-
-
-/* Container styling */
-.container {
-  width: 500px; 
-  margin: 10px auto; 
-  padding: 40px;
-  background-color: #f7f7f7; 
-  border: 2px solid var(--bg);
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif; 
-}
-
-/* Input fields section */
-.input-fields {
-  margin-bottom: 20px;
-}
-
-/* Individual input field styling */
-.input-fields div {
-  margin-bottom: 15px;
-}
-
-/* Label styling */
-.input-fields label {
-  font-weight: 500;
-  margin-bottom: 5px;
-  display: inline-block;
-  color: #333;
-}
-
-/* Input styling */
-.numinput,#wordInput,#stringInput,#nameInput,#phoneInput {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-/* Button styling */
-.submit button {
-  width: 100%;
-  padding: 10px;
-  background-color: var(--bg); 
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.submit button:hover {
-  background-color: #2a4826; 
-}
-
-/* Result and error messages styling */
-#result, #reverseString_result, #longestString_result,#form_result{
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 18px;
-  color: solid black;
-  text-align: center;
-}
-
-#error, #form_error, #longestString_error, #reverseString_error {
-  color: #e74c3c; 
-  margin-top: 15px;
-  font-weight: 400;
-  font-size: 18px;
-  text-align: center;
-}
-.red-asterisk {
-  color: red;
-  font-size: 20px;
-}
-
-/* Styles for screens below 300px */
-@media only screen and (max-width: 300px) {
-  .container {
-    width: 200px;
-    padding: 15px;
-  }
-}
-
-/* Styles for screens between 300px and 400px */
-@media only screen and (min-width: 300px) and (max-width: 500px) {
-  .container {
-    width: 300px;
-    padding: 20px;
-  }
-  #js_wrapper p{
-    font-size:20px;
-  }
 }
