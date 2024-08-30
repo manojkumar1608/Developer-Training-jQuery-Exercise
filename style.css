@@ -17,6 +17,7 @@
 #wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 6px;
   position: relative;
   border:2px solid #333;
 }
