@@ -39,7 +39,6 @@
   box-sizing: border-box; 
 }
 
-
 .header-name {
   font-size: 2.2rem;
   letter-spacing: 2px;
@@ -69,8 +68,7 @@
     letter-spacing: 1.5px;
     border-right: 2px solid black;
     margin-left: 0;
-    padding-left: 0;
-    
+    padding-left: 0; 
 }
 
 .leftnav {
