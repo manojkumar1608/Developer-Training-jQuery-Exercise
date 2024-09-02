@@ -27,24 +27,20 @@ $(document).ready(function () {
     html: `<h4>References</h4>`,
   }).appendTo("#mypage_leftnav");
 
-  $("#mypage_header").css({
+  const commonStyles = {
     "background-color": "#FFFF88",
     color: "#CC0000",
-    "border-bottom": "2px solid #FF1A00",
-  });
-  $("#center_section").css({
-    "background-color": "#FFFF88",
-    color: "#CC0000",
-    "padding-bottom": "30px",
-  });
+  };
 
-  $("#mypage_centerContent main").css({
-    "border-bottom": "2px solid #FF1A00",
-  });
+  $("#mypage_header, #center_section").css(commonStyles);
+  $("#mypage_header").css("border-bottom", "2px solid #FF1A00");
+  $("#center_section").css("padding-bottom", "30px");
 
+  $("#mypage_centerContent main").css("border-bottom", "2px solid #FF1A00");
   $("#mypage_leftnav aside").css({
     color: "#CC0000",
     "border-right": "2px solid #FF1A00",
   });
+
   $("#mypage_footer").hide();
 });
